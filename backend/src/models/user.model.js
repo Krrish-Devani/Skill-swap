@@ -33,8 +33,8 @@ const userSchema = new mongoose.Schema({
 
     availability: {
         type: String,
-        enum: ['weekdays', 'weekends', 'anytime'],
-        default: 'Not available',
+        enum: ['weekdays', 'weekends', 'anytime', 'not available'],
+        default: 'not available',
     },
     isPublic: {
         type: Boolean,
