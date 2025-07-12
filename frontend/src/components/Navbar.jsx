@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
-import { User, LogOut, Menu, X, MessageSquare } from 'lucide-react';
+import { User, LogOut, Menu, X, RefreshCw, Users, Target, Link2 } from 'lucide-react';
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +24,7 @@ function Navbar() {
                     <div className='flex items-center gap-8'>
                         <Link to="/" className='flex items-center gap-2 hover:opacity-80 transition-opacity group'>
                             <div className='h-9 w-9 bg-blue-600 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105'>
-                                <MessageSquare className='w-5 h-5 text-white' />
+                                <RefreshCw className='w-5 h-5 text-white' />
                             </div>
                             <div className='flex items-center gap-1'>
                                 <h1 className='text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors'>SkillSwap</h1>
@@ -41,6 +41,27 @@ function Navbar() {
                                     className='flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium'
                                 >
                                     Home
+                                </Link>
+                                <Link 
+                                    to="/browse"
+                                    className='flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium'
+                                >
+                                    <Users className='w-4 h-4' />
+                                    <span>Browse</span>
+                                </Link>
+                                <Link 
+                                    to="/skill-matches"
+                                    className='flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium'
+                                >
+                                    <Target className='w-4 h-4' />
+                                    <span>Matches</span>
+                                </Link>
+                                <Link 
+                                    to="/swaps"
+                                    className='flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium'
+                                >
+                                    <Link2 className='w-4 h-4' />
+                                    <span>Swaps</span>
                                 </Link>
                                 <Link 
                                     to="/profile"
@@ -104,6 +125,30 @@ function Navbar() {
                                         onClick={() => setIsMenuOpen(false)}
                                     >
                                         Home
+                                    </Link>
+                                    <Link 
+                                        to="/browse"
+                                        className='flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium'
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        <Users className='w-4 h-4' />
+                                        <span>Browse</span>
+                                    </Link>
+                                    <Link 
+                                        to="/skill-matches"
+                                        className='flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium'
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        <Target className='w-4 h-4' />
+                                        <span>Matches</span>
+                                    </Link>
+                                    <Link 
+                                        to="/swaps"
+                                        className='flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium'
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        <Link2 className='w-4 h-4' />
+                                        <span>Swaps</span>
                                     </Link>
                                     <Link 
                                         to="/profile"

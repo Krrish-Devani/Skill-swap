@@ -72,7 +72,10 @@ export const getMySwapRequests = wrapAsync(async (req, res) => {
         .populate('recipient', 'fullName email profilePic')
         .sort({ createdAt: -1 });
 
-    res.json({ swaps });
+    res.json({ 
+        success: true,
+        swaps 
+    });
 });
 
 // Accept a swap request

@@ -12,7 +12,9 @@ import HomePage from "./pages/HomePage"
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login"
 import Profile from "./pages/Profile"
-import Footer from './components/Footer'
+import BrowseUsers from "./pages/BrowseUsers"
+import SkillMatches from "./pages/SkillMatches"
+import Swaps from "./pages/Swaps"
 
 function App() {
 
@@ -40,12 +42,14 @@ function App() {
           <Route path="/signup" element={ !authUser ? <SignUp /> : <Navigate to={"/"} />} />
           <Route path="/login" element={ !authUser ? <Login /> : <Navigate to={"/"} />} />
           <Route path="/profile" element={ authUser ? <Profile /> : <Navigate to={"/login"} />} />
+          <Route path="/browse" element={ authUser ? <BrowseUsers /> : <Navigate to={"/login"} />} />
+          <Route path="/skill-matches" element={ authUser ? <SkillMatches /> : <Navigate to={"/login"} />} />
+          <Route path="/swaps" element={ authUser ? <Swaps /> : <Navigate to={"/login"} />} />
         </Routes>
       </main>
 
       <Toaster />
 
-      {/* <Footer /> */}
     </div>
   )
 }

@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
     location: {
         type: String,
     },
+    bio: {
+        type: String,
+        default: '',
+    },
     skillsOffered: {
         type: [String],
         default: [],
@@ -35,10 +39,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ['weekdays', 'weekends', 'anytime', 'not available'],
         default: 'not available',
-    },
-    isPublic: {
-        type: Boolean,
-        default: true,
     },
     createdAt: {
         type: Date,

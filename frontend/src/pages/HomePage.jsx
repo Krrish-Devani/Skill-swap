@@ -1,18 +1,18 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
-import { MessageSquare, Users, Star, ArrowRight } from 'lucide-react';
+import { RefreshCw, Users, Star, ArrowRight, MessageSquare } from 'lucide-react';
 
 function HomePage() {
   const { authUser } = useAuthStore();
 
   return (
-    <div className="min-h-full bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="min-h-full bg-gradient-to-b from-gray-50 to-gray-100" style={{ paddingTop: '69px' }}>
       {/* Hero Section */}
       <div className="bg-white shadow-sm">
         <div className="max-w-screen-xl mx-auto px-4 py-16 text-center">
           <div className="flex justify-center mb-6">
             <div className="h-16 w-16 bg-blue-600 rounded-2xl flex items-center justify-center">
-              <MessageSquare className="h-8 w-8 text-white" />
+              <RefreshCw className="h-8 w-8 text-white" />
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -27,13 +27,26 @@ function HomePage() {
           
           {authUser && (
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center">
-                Browse Skills
+              <Link 
+                to="/browse"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center"
+              >
+                Browse Users
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
-              <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold transition-all duration-300">
-                Share Your Skills
-              </button>
+              </Link>
+              <Link 
+                to="/skill-matches"
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center"
+              >
+                Skill Matches
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <Link 
+                to="/profile"
+                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center"
+              >
+                Update Profile
+              </Link>
             </div>
           )}
         </div>

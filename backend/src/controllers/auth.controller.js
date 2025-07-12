@@ -27,12 +27,17 @@ export const signup = wrapAsync(async (req, res) => {
         generateToken(newUser._id, res);
         await newUser.save();
         return res.status(201).json({
-            message: 'User created successfully',
-            user: {
-                _id: newUser._id,
-                email: newUser.email,
-                fullName: newUser.fullName,
-            }
+            _id: newUser._id,
+            email: newUser.email,
+            fullName: newUser.fullName,
+            profilePic: newUser.profilePic,
+            location: newUser.location,
+            bio: newUser.bio,
+            skillsOffered: newUser.skillsOffered,
+            skillsWanted: newUser.skillsWanted,
+            availability: newUser.availability,
+            isPublic: newUser.isPublic,
+            createdAt: newUser.createdAt
         });
     } else {
         throw new ExpressError(500, 'User creation failed');
@@ -57,12 +62,17 @@ export const login = wrapAsync(async (req, res) => {
     generateToken(user._id, res);
 
     return res.status(200).json({
-        message: 'Login successful',
-        user: {
-            _id: user._id,
-            email: user.email,
-            fullName: user.fullName,
-        }
+        _id: user._id,
+        email: user.email,
+        fullName: user.fullName,
+        profilePic: user.profilePic,
+        location: user.location,
+        bio: user.bio,
+        skillsOffered: user.skillsOffered,
+        skillsWanted: user.skillsWanted,
+        availability: user.availability,
+        isPublic: user.isPublic,
+        createdAt: user.createdAt
     })
 });
 
@@ -75,5 +85,17 @@ export const logout = wrapAsync(async (req, res) => {
 });
 
 export const checkAuth = wrapAsync(async (req, res) => {
-    res.status(200).json(req.user);
+    res.status(200).json({
+        _id: req.user._id,
+        email: req.user.email,
+        fullName: req.user.fullName,
+        profilePic: req.user.profilePic,
+        location: req.user.location,
+        bio: req.user.bio,
+        skillsOffered: req.user.skillsOffered,
+        skillsWanted: req.user.skillsWanted,
+        availability: req.user.availability,
+        isPublic: req.user.isPublic,
+        createdAt: req.user.createdAt
+    });
 });
